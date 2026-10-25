@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>📈 Estudio Trading — Knowledge Hub & Campus Cuantitativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="top-bar">
+    <a href="#" class="brand">
+      <span class="brand-icon">📈</span>
+      <span class="brand-title">
+        ESTUDIO TRADING
+        <span class="badge-hub">PRO HUB</span>
+      </span>
+    </a>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" class="search-input" placeholder="Buscar patrón, Wyckoff, setup, regla IF/THEN o Wall Street...">
+      <span class="search-kbd">Ctrl+K</span>
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="top-actions">
+      <button id="btn-open-calc" class="btn-action">
+        <span>🧮</span>
+        <span>Calculadoras</span>
+      </button>
+      <button id="btn-open-gem" class="btn-action btn-primary-action">
+        <span>🤖</span>
+        <span>Exportar a Gem</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <div class="layout-container">
+    
+    <!-- SIDEBAR WITH 7 CATEGORIES -->
+    <aside class="sidebar">
+      <div class="sidebar-header-label">
+        <span>Categorías Oficiales (7)</span>
+        <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan);">41 Fuentes</span>
+      </div>
+
+      <nav id="nav-categories">
+        <!-- Rendered dynamically by app.js -->
+      </nav>
+
+      <!-- SIDEBAR FOOTER -->
+      <div class="sidebar-footer">
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span>Knowledge Hub Operativo</span>
+        </div>
+        <div class="server-port-text">
+          Localhost • Puerto 8550 • Single Source of Truth
+        </div>
+      </div>
+    </aside>
+
+    <!-- CONTENT STAGE -->
+    <main class="content-stage">
+      <div id="breadcrumbs" class="breadcrumbs">
+        <!-- Breadcrumbs rendered dynamically -->
+      </div>
+
+      <div id="content-stage">
+        <!-- Active section content rendered dynamically -->
+      </div>
+    </main>
+
+  </div>
+
+  <!-- MODAL: CALCULADORAS CUANTITATIVAS -->
+  <div id="modal-calc" class="modal-overlay">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <span>🧮</span>
+          <span>Herramientas & Calculadoras Cuantitativas</span>
+        </h3>
+        <button id="btn-close-calc" class="btn-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Tabs -->
+        <div class="calc-tabs">
+          <button id="tab-btn-position" class="calc-tab-btn active" onclick="switchCalcTab('position')">
+            Position Sizing & Apalancamiento
+          </button>
+          <button id="tab-btn-breakeven" class="calc-tab-btn" onclick="switchCalcTab('breakeven')">
+            Breakeven Real con Fees
+          </button>
+          <button id="tab-btn-expectancy" class="calc-tab-btn" onclick="switchCalcTab('expectancy')">
+            Esperanza Matemática
+          </button>
+        </div>
+
+        <!-- Pane 1: Position Sizing -->
+        <div id="pane-position" class="calc-tab-pane">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Capital Total de Cuenta (USD)</label>
+              <input type="number" id="calc-cap" class="form-input" value="1000" oninput="updateCalculator()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Riesgo Permitido por Operación (%)</label>
+              <input type="number" id="calc-risk" class="form-input" value="1.0" step="0.1" oninput="updateCalculator()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Precio de Entrada (USD)</label>
+              <input type="number" id="calc-entry" class="form-input" value="100.00" step="0.01" oninput="updateCalculator()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Precio de Stop Loss (USD)</label>
+              <input type="number" id="calc-sl" class="form-input" value="98.00" step="0.01" oninput="updateCalculator()">
+            </div>
+          </div>
+
+          <div class="calc-result-box" style="margin-top:1.25rem;">
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Riesgo Nominal en Balance:</span>
+              <span id="res-risk-amt" class="result-val">$10.00 USD</span>
+            </div>
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Distancia al Stop Loss:</span>
+              <span id="res-sl-dist" class="result-val">2.00 pts (2.00%)</span>
+            </div>
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Tamaño de Posición / Lote Sugerido:</span>
+              <span id="res-lot-size" class="result-val" style="color:var(--cyan);">$500.00</span>
+            </div>
+            <div class="result-row" style="border-top:1px solid var(--border-subtle); padding-top:0.5rem;">
+              <span style="color:var(--text-dim);">Apalancamiento Demandado:</span>
+              <span id="res-leverage" class="status-pill-result status-safe">0.50x</span>
+            </div>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-align:right;" id="res-status-text">
+              Apalancamiento Bajo / Seguro
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 2: Breakeven Real -->
+        <div id="pane-breakeven" class="calc-tab-pane" style="display:none;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Precio de Entrada (USD)</label>
+              <input type="number" id="calc-be-entry" class="form-input" value="100.00" step="0.01" oninput="updateCalculator()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Comisión por Tramo / Fee (%)</label>
+              <input type="number" id="calc-be-fee" class="form-input" value="0.06" step="0.01" oninput="updateCalculator()">
+            </div>
+            <div class="form-group" style="grid-column: span 2;">
+              <label class="form-label">Colchón Estimado de Slippage / Deslizamiento (%)</label>
+              <input type="number" id="calc-be-slip" class="form-input" value="0.04" step="0.01" oninput="updateCalculator()">
+            </div>
+          </div>
+
+          <div class="calc-result-box" style="margin-top:1.25rem;">
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Colchón Round-Trip Requerido:</span>
+              <span id="res-be-cushion" class="result-val" style="color:var(--amber);">+$0.20 (0.20%)</span>
+            </div>
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Precio de Breakeven en COMPRAS (Long):</span>
+              <span id="res-be-long" class="result-val green">$100.20</span>
+            </div>
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Precio de Breakeven en VENTAS (Short):</span>
+              <span id="res-be-short" class="result-val" style="color:var(--rose);">$99.80</span>
+            </div>
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">
+              * Salir en el precio nominal de entrada sin sumar este cojín produce pérdidas reales por doble comisión.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pane 3: Esperanza Matemática -->
+        <div id="pane-expectancy" class="calc-tab-pane" style="display:none;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Tasa de Acierto / Win Rate (%)</label>
+              <input type="number" id="calc-exp-wr" class="form-input" value="40" step="1" oninput="updateCalculator()">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Ratio Beneficio:Riesgo (R:R Promedio)</label>
+              <input type="number" id="calc-exp-rr" class="form-input" value="2.0" step="0.1" oninput="updateCalculator()">
+            </div>
+            <div class="form-group" style="grid-column: span 2;">
+              <label class="form-label">Riesgo Fijo por Operación ($)</label>
+              <input type="number" id="calc-exp-risk" class="form-input" value="100" oninput="updateCalculator()">
+            </div>
+          </div>
+
+          <div class="calc-result-box" style="margin-top:1.25rem;">
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Esperanza Matemática Neta:</span>
+              <span id="res-exp-val" class="result-val green">+$20.00 USD / trade</span>
+            </div>
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Ganancia Proyectada a 50 Operaciones:</span>
+              <span id="res-exp-50" class="result-val">+$1,000.00 USD</span>
+            </div>
+            <div class="result-row">
+              <span style="color:var(--text-dim);">Ganancia Proyectada a 100 Operaciones:</span>
+              <span id="res-exp-100" class="result-val green">+$2,000.00 USD</span>
+            </div>
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.25rem;">
+              * Demuestra matemáticamente que un Win Rate del 40% es sumamente rentable si el ratio R:R se mantiene en $\ge 1:2.0$.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-action" onclick="document.getElementById('modal-calc').classList.remove('open')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: EXPORTADOR DE SYSTEM PROMPT PARA GEM -->
+  <div id="modal-gem" class="modal-overlay">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <span>🤖</span>
+          <span>Generador de System Prompt para Gem / IA</span>
+        </h3>
+        <button id="btn-close-gem" class="btn-close">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size:0.88rem; color:var(--text-muted);">
+          Selecciona qué categorías deseas incluir en las instrucciones de sistema de tu Gem. El prompt se compila automáticamente listo para copiar y pegar en Google Gemini:
+        </p>
+
+        <div id="gem-checkboxes" style="background:var(--bg-base); padding:1rem; border-radius:8px; border:1px solid var(--border-subtle);">
+          <!-- Dynamic checkboxes -->
+        </div>
+
+        <div>
+          <label class="form-label" style="margin-bottom:0.4rem; display:block;">Vista Previa del Prompt Compilado:</label>
+          <textarea id="prompt-preview" class="prompt-preview" readonly></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-action" onclick="document.getElementById('modal-gem').classList.remove('open')">Cancelar</button>
+        <button id="btn-copy-prompt" class="btn-action btn-primary-action">
+          <span>📋</span>
+          <span>Copiar System Prompt</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/calculators.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
