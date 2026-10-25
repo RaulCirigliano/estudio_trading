@@ -62,5 +62,6 @@ estudio_trading/
 - **Categoría 1 (Análisis Técnico)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/01_analisis_tecnico.md` - 33 KB).
 - **Categoría 2 (Criptomonedas)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/02_criptomonedas.md` - 24 KB).
 - **Categoría 3 (Desarrollo de Negocios)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/03_desarrollo_negocios.md` - 33 KB).
-- **Categoría 4 (Estrategias de Trading)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/04_estrategias_trading.md` - 27 KB: Protocolo 1D->4H->1H->5M, VWAP +/-2σ, alineación EMA 20/50/200, SPX/QQQ brújula, Fuerza Relativa en semis/IA con MU/NVDA/CoreWeave, casos reales auditados AAPL/MSFT/TSLA/AMZN/BTC, checklist de 5 puntos y 5 vetos de entrada).
-- **Próximo paso**: Extracción de la **Categoría 5: Gestión de Riesgo**.
+- **Categoría 4 (Estrategias de Trading)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/04_estrategias_trading.md` - 27 KB).
+- **Categoría 5 (Gestión de Riesgo)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/05_gestion_riesgo.md` - 22 KB: Ecuación matemática de Position Sizing, apalancamiento como variable dependiente, comisiones round-trip y slippage, tabla de recuperación no lineal, protocolos de Prop Firms y De-risking escalonado, Circuit Breakers automáticos ante 3 pérdidas o FOMC/CPI/NFP).
+- **Próximo paso**: Extracción de la **Categoría 6: Sistemas y Automatización**.
