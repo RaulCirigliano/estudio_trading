@@ -59,5 +59,6 @@ estudio_trading/
 
 ## ⏱️ Estado Actual
 - **Fase**: Fase 1 (Extracción Modular de las 7 Categorías).
-- **Categoría 1 (Análisis Técnico)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/01_analisis_tecnico.md` - 33 KB de axiomas, ratios DRDR, catálogo de velas, Bulkowski benchmarks, Elliott, MTF y reglas IF/THEN).
-- **Próximo paso**: Extracción de la **Categoría 2: Criptomonedas**.
+- **Categoría 1 (Análisis Técnico)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/01_analisis_tecnico.md` - 33 KB).
+- **Categoría 2 (Criptomonedas)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/02_criptomonedas.md` - 24 KB: 24/7, Funding Rates, Open Interest, setup BTC 4-pasos con límite 0.75 Fib y gatillo EMA 50 5m, margen aislado vs cruzado, protocolo dual anti-sesgos).
+- **Próximo paso**: Extracción de la **Categoría 3: Desarrollo de Negocios**.
