@@ -1,0 +1,12 @@
+# Node / Web dependencies & build
+node_modules/
+dist/
+.cache/
+
+# Environment & secrets
+.env
+*.local
+
+# System & OS
+.DS_Store
+Thumbs.db
