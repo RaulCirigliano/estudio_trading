@@ -61,5 +61,6 @@ estudio_trading/
 - **Fase**: Fase 1 (Extracción Modular de las 7 Categorías).
 - **Categoría 1 (Análisis Técnico)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/01_analisis_tecnico.md` - 33 KB).
 - **Categoría 2 (Criptomonedas)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/02_criptomonedas.md` - 24 KB).
-- **Categoría 3 (Desarrollo de Negocios)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/03_desarrollo_negocios.md` - 33 KB: De Operador a CEO de $100k+, Runway de 6-12 meses, rutinas pre/post con framework XDS, mecánica real de piso NYSE con Citadel/Jane Street al 60%, embudos high-ticket y reclutamiento predictivo en 5 pasos).
-- **Próximo paso**: Extracción de la **Categoría 4: Estrategias de Trading**.
+- **Categoría 3 (Desarrollo de Negocios)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/03_desarrollo_negocios.md` - 33 KB).
+- **Categoría 4 (Estrategias de Trading)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/04_estrategias_trading.md` - 27 KB: Protocolo 1D->4H->1H->5M, VWAP +/-2σ, alineación EMA 20/50/200, SPX/QQQ brújula, Fuerza Relativa en semis/IA con MU/NVDA/CoreWeave, casos reales auditados AAPL/MSFT/TSLA/AMZN/BTC, checklist de 5 puntos y 5 vetos de entrada).
+- **Próximo paso**: Extracción de la **Categoría 5: Gestión de Riesgo**.
