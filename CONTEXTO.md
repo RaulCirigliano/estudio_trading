@@ -12,20 +12,20 @@ Transformar las 41 fuentes del cuaderno de NotebookLM (`📈 Trading`) en:
 
 Según la clasificación orgánica de NotebookLM:
 
-1. **Análisis Técnico**:
-   - Atlas Cuantitativo de Velas Japonesas, manuales de patrones técnicos, Ondas de Elliott, soportes/resistencias dinámicos, confluencias de marcos temporales.
-2. **Criptomonedas**:
-   - Dinámica de criptoactivos, ciclos de mercado, protocolos, spreads, apalancamiento y diferencias operativas vs acciones/futuros.
-3. **Desarrollo de Negocios**:
-   - El trading concebido como empresa/negocio, estructuración de capital, profesionalización, mentalidad de escalabilidad (Marcos Razzetti, etc.).
-4. **Estrategias de Trading**:
-   - Setups operativos completos paso a paso: Setup Nasdaq Araujo (VWAP + rupturas), Hyenuk Chu (20 años de lecciones), cruces de medias, Trailing Trend Runners.
-5. **Gestión de Riesgo**:
-   - Preservación de capital, dimensionamiento matemático de lotaje, reglas de apalancamiento vs distancia SL, control de drawdown, reglas de cuentas de fondeo 2026.
-6. **Sistemas y Automatización**:
-   - Arquitectura del motor algorítmico, telemetría, APIs (CCXT, brokers), scanners en tiempo real, fórmulas cuantitativas (ATR, RSI, comisiones round-trip).
-7. **Testimonios y Experiencias**:
-   - Sabiduría de operadores legendarios de Wall Street (ex-traders de Goldman Sachs, Einstein de Wall Street, multimillonarios), trampas de manipulación institucional, lecciones de vida y psicología de trinchera.
+1. **Análisis Técnico** (`extracciones/01_analisis_tecnico.md` - 33 KB):
+   - Atlas Cuantitativo de Velas Japonesas, ratios DRDR, Wyckoff, catálogo exhaustivo de velas, benchmark Thomas Bulkowski (4.7M de velas), patrones chartistas complejos, Ondas de Elliott y Fibonacci, confluencia MTF y matriz IF/THEN.
+2. **Criptomonedas** (`extracciones/02_criptomonedas.md` - 25 KB):
+   - Dinámica 24/7 vs bolsas tradicionales, ciclos de halving, Funding Rates y Open Interest, barrido de liquidez en BTC ($60k con Doji Libélula y confirmación EMA 50 5m), margen aislado vs cruzado, protocolo descendente de 4 pasos e invalidación en 0.75 Fib.
+3. **Desarrollo de Negocios** (`extracciones/03_desarrollo_negocios.md` - 33 KB):
+   - Transición de Operador a CEO de $100k+, segregación de tesorería y Runway de 6-12 meses, rutinas de pre/post-mercado con framework XDS, mecánica real de piso NYSE con Citadel/Jane Street al 60%, embudos high-ticket y reclutamiento predictivo en 5 pasos.
+4. **Estrategias de Trading** (`extracciones/04_estrategias_trading.md` - 27 KB):
+   - Protocolo 1D->4H->1H->5M, VWAP +/-2σ, alineación EMA 20/50/200, SPX/QQQ brújula, Fuerza Relativa en semis/IA con MU/NVDA/CoreWeave, casos reales auditados AAPL/MSFT/TSLA/AMZN/BTC, checklist de 5 puntos y 5 vetos de entrada.
+5. **Gestión de Riesgo** (`extracciones/05_gestion_riesgo.md` - 23 KB):
+   - Ecuación matemática de Position Sizing, apalancamiento como variable dependiente, comisiones round-trip y slippage, tabla de recuperación no lineal, protocolos de Prop Firms y De-risking escalonado, Circuit Breakers automáticos ante 3 pérdidas o FOMC/CPI/NFP.
+6. **Sistemas y Automatización** (`extracciones/06_sistemas_automatizacion.md` - 30 KB):
+   - Arquitectura desacoplada, ingesta multitemporal y supervisor de IA local (Ollama/DeepSeek) con SLA < 200ms, fórmulas cuantitativas en código (VWAP, ATR Wilder N=14, RSI Wilder N=14), FSM de 6 estados, Breakeven y Trailing Stop dinámico por tramos Fib, solución a `DATABASE_LOCKED` con WAL mode en SQLite.
+7. **Testimonios y Experiencias** (`extracciones/07_testimonios_experiencias.md` - 36 KB):
+   - Anatomía real del piso NYSE (Alex Ruiz, Peter Tuchman, ICE Chat/Bloomberg, Traffic, Trading Officials y Market Makers), trampas de manipulación de noticias de la Fed, caso Manel e Ivania (247% en concurso crypto), caso Shafi ($5k a $100k), lección Hormosi de $50k, matriz de axiomas y las 10 Leyes Inviolables de los Traders Multimillonarios.
 
 ---
 
@@ -33,35 +33,11 @@ Según la clasificación orgánica de NotebookLM:
 - **Estilo visual**: Terminal profesional oscura (Dark slate/zinc, acentos emerald/rose/cyan, tipografía de alta legibilidad técnica).
 - **Navegación**: Menú lateral acorde a las 7 categorías, buscador en tiempo real, tarjetas de axiomas y reglas IF/THEN.
 - **Herramientas interactivas**: Calculadora de riesgo/lotaje, simulador de Breakeven con comisiones y generador de prompts para Gems.
-- **Puerto local asignado**: `8550` (según `REGISTRO_PUERTOS.md`).
-
----
-
-## 📁 Estructura del Repositorio
-```
-estudio_trading/
-├── CONTEXTO.md
-├── extracciones/
-│   ├── 01_analisis_tecnico.md
-│   ├── 02_criptomonedas.md
-│   ├── 03_desarrollo_negocios.md
-│   ├── 04_estrategias_trading.md
-│   ├── 05_gestion_riesgo.md
-│   ├── 06_sistemas_automatizacion.md
-│   └── 07_testimonios_experiencias.md
-├── docs/
-│   ├── knowledge_base.md
-│   └── SYSTEM_PROMPT_GEM.md
-└── web/
-```
+- **Puerto local asignado**: `8550` (registrado en `REGISTRO_PUERTOS.md`).
 
 ---
 
 ## ⏱️ Estado Actual
-- **Fase**: Fase 1 (Extracción Modular de las 7 Categorías).
-- **Categoría 1 (Análisis Técnico)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/01_analisis_tecnico.md` - 33 KB).
-- **Categoría 2 (Criptomonedas)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/02_criptomonedas.md` - 24 KB).
-- **Categoría 3 (Desarrollo de Negocios)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/03_desarrollo_negocios.md` - 33 KB).
-- **Categoría 4 (Estrategias de Trading)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/04_estrategias_trading.md` - 27 KB).
-- **Categoría 5 (Gestión de Riesgo)**: ✅ COMPLETADA Y VERIFICADA (`extracciones/05_gestion_riesgo.md` - 22 KB: Ecuación matemática de Position Sizing, apalancamiento como variable dependiente, comisiones round-trip y slippage, tabla de recuperación no lineal, protocolos de Prop Firms y De-risking escalonado, Circuit Breakers automáticos ante 3 pérdidas o FOMC/CPI/NFP).
-- **Próximo paso**: Extracción de la **Categoría 6: Sistemas y Automatización**.
+- **Fase 1 (Extracción Modular)**: ✅ 100% COMPLETADA (7 de 7 categorías extraídas y verificadas; 220 KB totales).
+- **Fase 2 (Consolidación)**: Generación del documento maestro `docs/knowledge_base.md` y del `docs/SYSTEM_PROMPT_GEM.md`.
+- **Fase 3 (Desarrollo Web)**: Creación de la plataforma web en `web/` con servidor local en puerto 8550.
